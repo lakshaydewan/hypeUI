@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect } from 'react'
+import React, { useCallback, useEffect } from 'react'
 import { IconSearch } from '@tabler/icons-react'
 import {
     Dialog,
@@ -14,19 +14,19 @@ const SearchBar = () => {
 
     const [open, setOpen] = React.useState(false)
 
+    const handleKeyDown = useCallback((event: KeyboardEvent) => {
+        if (event.key === 'k' && (event.ctrlKey || event.metaKey)) {
+            event.preventDefault();
+            setOpen(!open)
+        }
+    }, [open])
+
     useEffect(() => {
         document.addEventListener('keydown', handleKeyDown)
         return () => {
             document.removeEventListener('keydown', handleKeyDown)
         }
-    }, [])
-
-    const handleKeyDown = (event: KeyboardEvent) => {
-        if (event.key === 'k' && (event.ctrlKey || event.metaKey)) {
-            event.preventDefault();
-            setOpen(!open)
-        }
-    }
+    }, [handleKeyDown])
 
     return (
         <>

@@ -40,9 +40,7 @@ const code =  `const DummyComponent = () => {
 };
 `;
 
-const ComponentPage = async ({ params }: { params: { componentID: string } }) => {
-
-    const { componentID } = await params;
+const ComponentPage = async () => {
 
     return (
         <div className='flex w-full border-b border-neutral-800 pb-10'>
