@@ -1,0 +1,54 @@
+import React from 'react'
+import ButtonSleek from './ButtonSleek'
+
+const componentsName = [
+    { name: 'Button', href: '/components/button' },
+    { name: 'Input', href: '/components/input' },
+    { name: 'Textarea', href: '/components/textarea' },
+    { name: 'Checkbox', href: '/components/checkbox' },
+    { name: 'Radio', href: '/components/radio' },
+    { name: 'Switch', href: '/components/switch' },
+    { name: 'Avatar', href: '/components/avatar' },
+    { name: 'Badge', href: '/components/badge' },
+    { name: 'Button', href: '/components/button' },
+    { name: 'Card', href: '/components/card' },
+    { name: 'Checkbox', href: '/components/checkbox' },
+    { name: 'Divider', href: '/components/divider' },
+    { name: 'Dropdown', href: '/components/dropdown' },
+    { name: 'Icon', href: '/components/icon' },
+    { name: 'Input', href: '/components/input' },
+    { name: 'Modal', href: '/components/modal' },
+    { name: 'Radio', href: '/components/radio' },
+    { name: 'Select', href: '/components/select' },
+    { name: 'Switch', href: '/components/switch' },
+    { name: 'Tabs', href: '/components/tabs' },
+    { name: 'Textarea', href: '/components/textarea' },
+    { name: 'Toast', href: '/components/toast' },
+    { name: 'Tooltip', href: '/components/tooltip' },
+    { name: 'Typography', href: '/components/typography' },
+    { name: 'AvatarGroup', href: '/components/avatar-group' },
+    { name: 'Breadcrumb', href: '/components/breadcrumb' },
+    { name: 'ButtonGroup', href: '/components/button-group' },
+    { name: 'Card', href: '/components/card' },
+    { name: 'Checkbox', href: '/components/checkbox' },
+    { name: 'Divider', href: '/components/divider' },
+    { name: 'Dropdown', href: '/components/dropdown' },
+    { name: 'Icon', href: '/components/icon' },
+]
+
+const ComponentSideBar = () => {
+    return (
+        <div className='lg:flex justify-center items-center hidden w-[30vw] h-screen bg-neutral-950 pt-44'>
+            <div className='flex w-[70%] sticky left-0 flex-col items-start gap-1.5 overflow-y-scroll h-full pb-2'>
+                <div className='text-white text-start text-[15px] font-sans font-bold mb-1'>All Components</div>
+                {
+                    componentsName.map((component, index) => (
+                        <ButtonSleek key={index} text={component.name} link={component.href} />
+                    ))
+                }
+            </div>
+        </div>
+    )
+}
+
+export default ComponentSideBar;
