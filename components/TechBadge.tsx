@@ -19,7 +19,7 @@ const TechBadge = ({ name, isactive }: TechBadgeProps) => {
 
   if (name === 'React') {
     return (
-      <div className={`bg-neutral-950 group border ${isactive && "border border-blue-300 delay-100"} hover:border-[#60dbfb] ease-out transition-all duration-500 cursor-pointer text-sm font-light gap-1 w-fit px-5 py-3 text-white border border-neutral-800 rounded-lg flex flex-row justify-between items-center`}>
+      <div className={`bg-neutral-950 group border ${isactive && "border border-[#60dbfb] delay-100"} hover:border-[#60dbfb] ease-out transition-all duration-500 cursor-pointer text-sm font-light gap-1 w-fit px-5 py-3 text-white border border-neutral-800 rounded-lg flex flex-row justify-between items-center`}>
         <div className={`group-hover:text-[#60dbfb] group-hover:animate-spin transition-all duration-300 ease-out ${isactive && "delay-100 text-[#60dbfb] rotate-[360deg] transition-all duration-1000 ease-out"}`}>{<IconBrandReact stroke={1} className='size-6' />}</div>
         <div className=''>{name}</div>
       </div>
@@ -28,7 +28,7 @@ const TechBadge = ({ name, isactive }: TechBadgeProps) => {
 
   if (name === 'TailwindCSS') {
     return (
-      <div className={`bg-neutral-950 ${isactive && "border-blue-300 delay-300"} hover:border-[#36b6f1] transition-all duration-500 ease-out cursor-pointer group text-sm font-light gap-1 w-fit px-5 py-3 text-white border border-neutral-800 rounded-lg flex flex-row justify-between items-center`}>
+      <div className={`bg-neutral-950 ${isactive && "border-blue-400 delay-300"} hover:border-[#36b6f1] transition-all duration-500 ease-out cursor-pointer group text-sm font-light gap-1 w-fit px-5 py-3 text-white border border-neutral-800 rounded-lg flex flex-row justify-between items-center`}>
         <div className={`group-hover:text-[#36b6f1] ${isactive && "fill-[#36b6f1] delay-300 text-[#36b6f1]"} group-hover:fill-[#36b6f1] transition-all duration-500 ease-out `}>{<IconBrandTailwind stroke={1} fill='' className='size-6 group-hover:fill-[group-hover:text-[#36b6f1]] transition-all duration-300 ease-out' />}</div>
         <div className=''>{name}</div>
       </div>
@@ -46,7 +46,7 @@ const TechBadge = ({ name, isactive }: TechBadgeProps) => {
 
   if (name === 'TypeScript') {
     return (
-      <div className={`bg-neutral-950 ${isactive && "border-blue-500 delay-500"} hover:border-blue-400 transition-all duration-500 ease-out cursor-pointer group text-sm font-light gap-1 w-fit px-5 py-3 text-white border border-neutral-800 rounded-lg flex flex-row justify-between items-center`}>
+      <div className={`bg-neutral-950 ${isactive && "border-blue-400 delay-500"} hover:border-blue-400 transition-all duration-500 ease-out cursor-pointer group text-sm font-light gap-1 w-fit px-5 py-3 text-white border border-neutral-800 rounded-lg flex flex-row justify-between items-center`}>
         <div className={`group-hover:text-blue-400 ${isactive && "text-blue-400 delay-500"} transition-all duration-500 ease-out`}>{<IconBrandTypescript stroke={1} className='size-6' />}</div>
         <div className=''>{name}</div> 
       </div>
