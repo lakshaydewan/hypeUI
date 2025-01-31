@@ -15,10 +15,10 @@ const links = [
 const Navbar = () => {
     return (
         <div className='fixed top-0 z-50 left-0 w-full h-fit flex justify-center items-center'>
-            <div className='w-[90%] h-fit py-1 bg-neutral-950 border border-neutral-800 rounded-lg mt-4 flex flex-row justify-between items-center'>
+            <div className='w-[95%] h-fit py-1 bg-neutral-950 border border-neutral-800 rounded-lg mt-4 flex flex-row justify-between items-center'>
                 <div className='flex justify-center items-center gap-5'>
                     <Logo />
-                    <div className='hidden lg:flex flex-row gap-3 items-center'>
+                    <div className='hidden lg:flex flex-row gap-5 items-center'>
                         {
                             links.map((link, index) => {
                                 return (

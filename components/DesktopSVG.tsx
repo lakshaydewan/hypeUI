@@ -2,12 +2,17 @@
 import React, { useState } from 'react'
 import TechBadge from './TechBadge'
 import HeroBadge from './HeroBadge';
+import { motion } from 'motion/react';
 
 const DesktopSVG = () => {
     const [isactive, setIsactive] = useState(false);
 
     return (
-        <div className='hidden lg:block w-fit h-fit relative'>
+        <motion.div 
+        initial={{ opacity: 0, y: 10, }}
+        animate={{ opacity: 1, y: 0, }}
+        transition={{ duration: 2.5, ease: "backOut", delay: 1 }}
+        className='hidden lg:block w-fit h-fit relative'>
             {/* Tech Badges */}
             <div className='absolute top-14 left-20 w-fit h-fit'>
                 <TechBadge isactive={isactive} name='Next.js' />
@@ -64,7 +69,7 @@ const DesktopSVG = () => {
                     mask="url(#fade-mask-top-bottom)"
                 />
             </svg>
-        </div>
+        </motion.div>
     )
 }
 
