@@ -7,7 +7,7 @@ import React from 'react'
 
 const Showcase = () => {
 
-    const [translateX, setTranslateX] = useState(-620);
+    const [translateX, setTranslateX] = useState(-800);
     const [pointer, setPointer] = useState({ x: 0, y: 0 });
     const [isHovered, setIsHovered] = useState(false);
 
