@@ -1,9 +1,8 @@
 import React from 'react'
 import SearchBar from './SearchBar'
 import Logo from './Logo'
-import Link from 'next/link'
-import { IconSun } from '@tabler/icons-react'
 import NavbarButton from './NavbarButton'
+import ThemeToggle from './ThemeToggle'
 
 const links = [
     { name: 'Components', href: '/components',  },
@@ -12,10 +11,15 @@ const links = [
     { name: 'Showcase', href: '/Showcase', isNew:true },
 ]
 
+const socialsLinks = [
+    { name: "Twitter", href: "https://twitter.com/lakshaydiwan" },
+    { name: "Discord", href: "https://github.com/lakshaydiwan" },
+]
+
 const Navbar = () => {
     return (
         <div className='fixed top-0 z-50 left-0 w-full h-fit flex justify-center items-center'>
-            <div className='w-[95%] h-fit py-1 bg-neutral-950 border border-neutral-800 rounded-lg mt-4 flex flex-row justify-between items-center'>
+            <div className='w-[95%] h-fit shadow-2xl border border-neutral-400 py-1 bg-white dark:bg-neutral-950 dark:border dark:border-neutral-800 rounded-lg mt-4 flex flex-row justify-between items-center'>
                 <div className='flex justify-center items-center gap-5'>
                     <Logo />
                     <div className='hidden lg:flex flex-row gap-5 items-center'>
@@ -29,11 +33,14 @@ const Navbar = () => {
                     </div>
                 </div>
                 <div className='hidden lg:flex flex-row gap-3 items-center'>
-                    <Link href={"#"} className='text-primary hover:text-white transition-all duration-100 ease-out font-sans font-medium text-sm'>Discord</Link>
-                    <Link href={"#"} className='text-primary hover:text-white transition-all duration-100 ease-out font-sans font-medium text-sm'>Twitter</Link>
-                    <div className='cursor-pointer group hover:bg-neutral-800 p-2 rounded-sm flex justify-center items-center transition-all duration-150 ease-out'>
-                        <IconSun stroke={1.5} className='text-primary w-[17px] h-[17px] transition-all duration-150 ease-out group-hover:text-white' />
-                    </div>
+                    {
+                        socialsLinks.map((link, index) => {
+                            return (
+                                <NavbarButton key={index} link={link} index={index} />
+                            )
+                        })
+                    }
+                    <ThemeToggle />
                     <SearchBar />
                 </div>
             </div>

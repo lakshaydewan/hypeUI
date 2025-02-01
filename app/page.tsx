@@ -39,7 +39,7 @@ const HomePage = () => {
       <div className='bg-neutral-950 h-screen w-screen flex flex-col justify-center items-center'>
         <HeroBackground />
         <div className='z-0 w-full h-full flex md:flex-row flex-col gap-4 md:gap-0 justify-center items-center'>
-          <div className='flex flex-col md:mr-[-60px] text-white justify-center tracking-wide w-full md:w-[40%] items-center lg:items-start rounded-xl'>
+          <div className='flex flex-col md:mr-[-60px] text-neutral-950 dark:text-white justify-center tracking-wide w-full md:w-[40%] items-center lg:items-start rounded-xl'>
             <motion.div
               initial={{ opacity: 0, filter: 'blur(10px)' }}
               animate={{ opacity: 1, filter: 'blur(0px)' }}
@@ -59,20 +59,20 @@ const HomePage = () => {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, ease: "backOut", delay: 1.1 }}
-              className='mt-6 text-primary md:p-0 px-4 lg:mr-28 font-sans text-center lg:text-start font-light text-lg'>
+              className='mt-6 text-neutral-700 dark:text-primary md:p-0 px-4 lg:mr-28 font-sans text-center lg:text-start font-light text-lg'>
               Empower your development process with a collection of easy-to-use, customizable components that bring your vision to life quickly and beautifully.
             </motion.div>
             <Link href={"/components"} className='flex gap-4 md:gap-0 justify-center items-center'>
-              <button className='text-sm hover:shadow-sm hover:shadow-black mt-10 bg-white text-neutral-950 font-sans font-bold py-5 px-7 rounded-xl'>Browse Components</button>
+              <button className='text-sm hover:shadow-md mt-10 border bg-white text-neutral-950 font-sans font-bold py-5 px-7 rounded-xl transition-all duration-300  ease-out'>Browse Components</button>
             </Link>
           </div>
           <DesktopSVG />
         </div>
       </div>
-      <div ref={containerRef} className='h-[120vh] relative text-white w-screen bg-neutral-950 flex flex-col justify-center items-center'>
+      <div ref={containerRef} className='h-[120vh] relative text-white bg-white w-screen dark:bg-neutral-950 flex flex-col justify-center items-center'>
         <div className='w-screen h-screen flex flex-col justify-center items-center'>
-          <div className='w-[90vw] overflow-hidden border border-neutral-800 relative shadow-2xl rounded-3xl h-[70vh] md:h-[90vh] flex flex-col justify-center items-center'>
-            <div className='absolute bottom-[-80px] rounded-2xl right-[-50px] md:w-[90%] w-[95%] h-[90%] border border-neutral-800 bg-neutral-600 flex flex-col justify-center items-center'>
+          <div className='w-[90vw] overflow-hidden border dark:border-neutral-800 relative shadow-2xl rounded-3xl h-[70vh] md:h-[90vh] flex flex-col justify-center items-center'>
+            <div className='absolute bottom-[-80px] rounded-2xl right-[-50px] md:w-[90%] w-[95%] h-[90%] border dark:border-neutral-800 bg-neutral-200 dark:bg-neutral-600 flex flex-col justify-center items-center'>
 
             </div>
             {/* <motion.div style={{
@@ -104,7 +104,7 @@ const HomePage = () => {
                 hi there
               </motion.div> */}
             <div className='text-center absolute top-12 left-12 text-2xl md:text-4xl font-sans font-bold'>
-              <h1 className='text-white font-sans font-bold'>Just as simple as</h1>
+              <h1 className='dark:text-white text-neutral-950 font-sans font-bold'>Just as simple as</h1>
               <span className='text-primary'>CTRL + </span>
               {
                 toggle ?
@@ -113,14 +113,14 @@ const HomePage = () => {
                     initial={{ opacity: 0, filter: 'blur(10px)' }}
                     animate={{ opacity: 1, filter: 'blur(0px)' }}
                     transition={{ duration: 0.5, ease: "easeOut" }}
-                    className='text-white'>V</motion.span>
+                    className='dark:text-white text-neutral-950'>V</motion.span>
                   :
                   <motion.span
                     key={"C"}
                     initial={{ opacity: 0, filter: 'blur(10px)' }}
                     animate={{ opacity: 1, filter: 'blur(0px)' }}
                     transition={{ duration: 0.5, ease: "easeOut" }}
-                    className='text-white'>C</motion.span>
+                    className='dark:text-white text-neutral-950'>C</motion.span>
               }
             </div>
           </div>

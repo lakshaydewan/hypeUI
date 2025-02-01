@@ -7,7 +7,6 @@ import {
     DialogDescription,
     DialogHeader,
     DialogTitle,
-    DialogTrigger,
 } from "@/components/ui/dialog"
 
 const SearchBar = () => {
@@ -32,10 +31,10 @@ const SearchBar = () => {
         <>
             <button onClick={() => {
                 setOpen(true)
-            }} className='flex group justify-center mr-8 gap-1 border py-1.5 px-2 border-[#333333] items-center w-fit h-fit bg-neutral-950 rounded-lg'>
-                <IconSearch stroke={1.5} className='text-primary text-xs w-4 h-4 transition-all duration-150 ease-out group-hover:text-white' />
-                <div className='text-primary text-xs group-hover:text-white font-sans font-bold ml-2 w-fit h-fit transition-all duration-150 ease-out'>Search Components</div>
-                <div className='text-primary bg-neutral-800 px-1.5 py-1 rounded-sm flex justify-center items-center gap-0.5 w-fit h-fit'>
+            }} className='flex group justify-center mr-8 gap-1 border py-1.5 px-2 border-neutral-400 dark:border-[#333333] items-center w-fit h-fit bg-white dark:bg-neutral-950 rounded-lg'>
+                <IconSearch stroke={1.5} className='text-primary text-xs w-4 h-4 transition-all duration-500 ease-out group-hover:text-neutral-950 dark:group-hover:text-white' />
+                <div className='text-primary text-xs group-hover:text-neutral-950 dark:group-hover:text-white font-sans font-bold ml-2 w-fit h-fit transition-all duration-500 ease-out'>Search Components</div>
+                <div className='group-hover:text-black dark:group-hover:text-neutral-50 text-primary bg-white dark:bg-neutral-800 px-1.5 transition-all duration-500 ease-out py-1 rounded-sm flex justify-center items-center gap-0.5 w-fit h-fit'>
                     <span className="text-xs">⌘</span>
                     <span className='text-xs'>K</span>
                 </div>
@@ -43,7 +42,6 @@ const SearchBar = () => {
             {
                 open && (
                     <Dialog open={open} onOpenChange={setOpen}>
-                        <DialogTrigger>Open</DialogTrigger>
                         <DialogContent>
                             <DialogHeader>
                                 <DialogTitle>Are you absolutely sure?</DialogTitle>
