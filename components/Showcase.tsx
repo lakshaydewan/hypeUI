@@ -1,7 +1,7 @@
 'use client'
 import { motion } from 'framer-motion'
 import { Icon3dCubeSphere } from '@tabler/icons-react'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 import React from 'react'
 
@@ -13,25 +13,11 @@ const Showcase = () => {
 
     const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
         const { left, width } = e.currentTarget.getBoundingClientRect()
+        setPointer({ x: e.clientX, y: e.clientY });
         const xPos = e.clientX - left; // Get mouse X position relative to container
         const percentage = xPos / width; // Normalize (0 to 1)
         const maxTranslate = e.currentTarget.scrollWidth - width; // Adjust this value for more/less movement
         setTranslateX(-percentage * maxTranslate); // Move left when pointer moves right
-    };
-
-    useEffect(() => {
-        window.addEventListener("mousemove", updateMousePosition);
-
-        const iD = setInterval(() => { setIsHovered(true) }, 1500);
-
-        return () => {
-            clearInterval(iD);
-            window.removeEventListener("mousemove", updateMousePosition);
-        }
-    })
-
-    const updateMousePosition = (e: MouseEvent) => {
-        setPointer({ x: e.clientX, y: e.clientY });
     };
 
     return (
@@ -77,7 +63,7 @@ const Showcase = () => {
                         x: pointer.x - 80,
                         y: pointer.y - 32,
                     }}
-                    className='bg-neutral-950 z-50 pointer-events-none w-fit border fixed top-0 left-0 text-white rounded-full py-3 px-7 font-sans font-semibold flex gap-1 justify-center items-center'>
+                    className={`bg-neutral-950 z-50 ${!isHovered && "hidden"} pointer-events-none w-fit border fixed top-0 left-0 text-white rounded-full py-3 px-7 font-sans font-semibold flex gap-1 justify-center items-center`}>
                     <div className='p-0 h-fit w-fit'>View Code</div>
                     <Icon3dCubeSphere stroke={1} className='size-6 animate-spin duration-1000 text-white group-hover:animate-spin' />
                 </motion.div>

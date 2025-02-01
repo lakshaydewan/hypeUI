@@ -5,6 +5,7 @@ import DesktopSVG from '@/components/DesktopSVG';
 import Link from 'next/link';
 import { motion } from 'motion/react';
 import Showcase from '@/components/Showcase';
+import Footer from '@/components/Footer';
 
 const HomePage = () => {
 
@@ -126,6 +127,7 @@ const HomePage = () => {
         </div>
       </div>
       <Showcase />
+      <Footer />
     </>
   )
 }
