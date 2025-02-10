@@ -1,5 +1,5 @@
 'use client'
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { Icon3dCubeSphere } from '@tabler/icons-react'
 import { useState } from 'react'
 
@@ -33,16 +33,16 @@ const Showcase = () => {
                     onMouseMove={handleMouseMove}
                 >
                     <motion.div
-                    onMouseEnter={() => {
-                        console.log("mouseEnter");
-                        setIsHovered(true)
-                        console.log(isHovered);
-                    }}
-                    onMouseLeave={() => {
-                        console.log("mouseLeave");
-                        setIsHovered(false)
-                        console.log(isHovered);
-                    }}
+                        onMouseEnter={() => {
+                            console.log("mouseEnter");
+                            setIsHovered(true)
+                            console.log(isHovered);
+                        }}
+                        onMouseLeave={() => {
+                            console.log("mouseLeave");
+                            setIsHovered(false)
+                            console.log(isHovered);
+                        }}
                         className="flex h-full hover:cursor-pointer flex-nowrap space-x-4 w-max"
                         animate={{ x: translateX }} // Apply horizontal translation
                         transition={{ type: "spring", stiffness: 100, damping: 50 }}
@@ -57,17 +57,24 @@ const Showcase = () => {
                         ))}
                     </motion.div>
                 </div>
-                {
-                isHovered && <motion.div
-                    style={{
-                        x: pointer.x - 80,
-                        y: pointer.y - 32,
-                    }}
-                    className={`bg-neutral-950 z-50 ${!isHovered && "hidden"} pointer-events-none w-fit border fixed top-0 left-0 text-white rounded-full py-3 px-7 font-sans font-semibold flex gap-1 justify-center items-center`}>
-                    <div className='p-0 h-fit w-fit'>View Code</div>
-                    <Icon3dCubeSphere stroke={1} className='size-6 animate-spin duration-1000 text-white group-hover:animate-spin' />
-                </motion.div>
-            }
+                <AnimatePresence>
+                    {isHovered && ( // Conditionally render the motion.div
+                        <motion.div
+                            initial={{ scale: 0.2, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ opacity: 0, scale: 0.2 }}
+                            transition={{ duration: 0.2, ease: "easeOut" }}
+                            style={{
+                                x: pointer.x - 80,
+                                y: pointer.y - 34,
+                            }}
+                            className="bg-neutral-950 z-50 pointer-events-none w-fit border fixed top-0 left-0 text-white rounded-full py-3 px-7 font-sans font-semibold flex gap-1 justify-center items-center"
+                        >
+                            <div className='p-0 h-fit w-fit'>View Code</div>
+                            <Icon3dCubeSphere stroke={1} className='size-6 animate-spin duration-1000 text-white group-hover:animate-spin' />
+                        </motion.div>
+                    )}
+                </AnimatePresence>
             </div>
         </>
     )
