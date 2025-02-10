@@ -38,9 +38,9 @@ const componentsName = [
 
 const ComponentSideBar = () => {
     return (
-        <div className='lg:flex justify-center items-center hidden w-[30vw] h-screen bg-neutral-950 pt-44'>
-            <div className='flex w-[70%] sticky left-0 flex-col items-start gap-1.5 overflow-y-scroll h-full pb-2'>
-                <div className='text-white text-start text-[15px] font-sans font-bold mb-1'>All Components</div>
+        <div className='lg:flex justify-center items-center hidden w-[30vw] h-screen bg-white dark:bg-neutral-950 pt-44'>
+            <div className='flex w-[70%] relative flex-col items-start gap-1.5 overflow-y-scroll h-full pb-2'>
+                <div className='dark:text-white text-black py-1 z-10 bg-white dark:bg-neutral-950 sticky top-0 left-0 text-start text-[15px] font-sans font-bold mb-1'>All Components</div>
                 {
                     componentsName.map((component, index) => (
                         <ButtonSleek key={index} text={component.name} link={component.href} />

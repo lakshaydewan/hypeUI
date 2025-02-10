@@ -4,9 +4,9 @@ import React from 'react'
 
 const ComponentsPage = () => {
     return (
-        <div className='flex w-full border-b border-neutral-800 pb-10'>
+        <div className='flex w-full bg-white dark:bg-neutral-950 border-b dark:border-neutral-800 pb-10'>
             <ComponentSideBar />
-            <div className='bg-neutral-950 w-full flex flex-col justify-center items-center pt-32 gap-4 overflow-y-scroll'>
+            <div className='bg-white dark:bg-neutral-950 w-full flex flex-col justify-center items-center pt-32 gap-4 overflow-y-scroll'>
                 <div className='w-[90%] flex justify-start items-center'>
                     <button className='bg-neutral-800 border border-neutral-900 text-primary hover:text-white text-sm font-sans font-normal transition-all duration-300 ease-out py-1 px-4 rounded-full'>Request Demo</button>
                 </div>
