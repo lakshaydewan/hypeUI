@@ -7,6 +7,7 @@ import {
     DialogHeader,
     DialogTitle,
 } from "@/components/ui/dialog"
+import Link from 'next/link'
 
 const componentsName = [
     { name: 'Button', href: '/components/button' },
@@ -71,7 +72,7 @@ const SearchBar = () => {
         <>
             <button onClick={() => {
                 setOpen(true)
-            }} className='flex group justify-center mr-8 gap-1 border py-1.5 px-2 border-neutral-400 dark:border-[#333333] items-center w-fit h-fit bg-white dark:bg-neutral-950 rounded-lg'>
+            }} className='flex group justify-center gap-1 border py-1.5 px-2 border-neutral-400 dark:border-[#333333] items-center w-fit h-fit bg-white dark:bg-neutral-950 rounded-lg'>
                 <IconSearch stroke={1.5} className='text-primary text-xs w-4 h-4 transition-all duration-500 ease-out group-hover:text-neutral-950 dark:group-hover:text-white' />
                 <div className='text-primary text-xs group-hover:text-neutral-950 dark:group-hover:text-white font-sans font-bold ml-2 w-fit h-fit transition-all duration-500 ease-out'>Search Components</div>
                 <div className='group-hover:text-black dark:group-hover:text-neutral-50 text-primary bg-white dark:bg-neutral-800 px-1.5 transition-all duration-500 ease-out py-1 rounded-sm flex justify-center items-center gap-0.5 w-fit h-fit'>
@@ -96,9 +97,9 @@ const SearchBar = () => {
                                                         return (
                                                             <div key={index} className='flex justify-start py-1 gap-1 items-center w-full'>  
                                                                 <IconCircle stroke={1.5} className='text-primary pl-2 text-xs w-[28px] h-[28px] transition-all duration-500 ease-out group-hover:text-neutral-950 dark:group-hover:text-white' />
-                                                                <a href={component.href} className='flex flex-row gap-1 items-center w-full'>
+                                                                <Link href={component.href} className='flex flex-row gap-1 items-center w-full'>
                                                                     {component.name}
-                                                                </a>
+                                                                </Link>
                                                             </div>
                                                         )
                                                     })

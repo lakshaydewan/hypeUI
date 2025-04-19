@@ -5,7 +5,7 @@ const ButtonSleek = ({ text, link }: { text: string, link: string }) => {
 
     return (
         <Link href={link}>
-            <div className='w-fit text-start h-fit text-[15px] font-sans cursor-pointer hover:translate-x-1.5 text-neutral-700 dark:text-primary hover:text-green-500 transition-all duration-200 ease-out'>
+            <div className='w-fit text-start h-fit text-[15px] font-sans cursor-pointer hover:translate-x-1.5 text-neutral-700 dark:text-primary hover:text-green-500 dark:hover:text-green-500 transition-all duration-200 ease-out'>
                 {text}
             </div>
         </Link>

@@ -3,12 +3,13 @@ import SearchBar from './SearchBar'
 import Logo from './Logo'
 import NavbarButton from './NavbarButton'
 import ThemeToggle from './ThemeToggle'
+import FullScreenNav from './FullScreenNav'
 
 const links = [
     { name: 'Components', href: '/components',  },
-    { name: 'Buttons', href: '/Buttons' },
+    { name: 'Buttons', href: '/buttons' },
     { name: 'Pricing', href: '/pricing' },
-    { name: 'Showcase', href: '/Showcase', isNew:true },
+    { name: 'Showcase', href: '/showcase', isNew:true },
 ]
 
 const socialsLinks = [
@@ -41,7 +42,12 @@ const Navbar = () => {
                         })
                     }
                     <ThemeToggle />
-                    <SearchBar />
+                    <div className='mr-8'>
+                        <SearchBar />
+                    </div>
+                </div>
+                <div className='lg:hidden flex flex-row gap-3 items-center'>
+                    <FullScreenNav />
                 </div>
             </div>
         </div>

@@ -8,11 +8,11 @@ const DesktopSVG = () => {
     const [isactive, setIsactive] = useState(false);
 
     return (
-        <motion.div 
-        initial={{ opacity: 0, y: 10, }}
-        animate={{ opacity: 1, y: 0, }}
-        transition={{ duration: 2.5, ease: "backOut", delay: 1 }}
-        className='hidden lg:block w-fit h-fit relative'>
+        <motion.div
+            initial={{ opacity: 0, y: 10, }}
+            animate={{ opacity: 1, y: 0, }}
+            transition={{ duration: 2, ease: "backOut", delay: 0.5 }}
+            className='hidden lg:block w-fit h-fit relative'>
             {/* Tech Badges */}
             <div className='absolute top-14 left-20 w-fit h-fit'>
                 <TechBadge isactive={isactive} name='Next.js' />
@@ -31,16 +31,16 @@ const DesktopSVG = () => {
             </div>
 
             {/* Hero Badge (Triggers Gradient Effect) */}
-            <div 
-                onMouseEnter={() => setIsactive(true)} 
-                onMouseLeave={() => setIsactive(false)} 
+            <div
+                onMouseEnter={() => setIsactive(true)}
+                onMouseLeave={() => setIsactive(false)}
                 className='absolute cursor-pointer bottom-[-24px] left-[-36px] w-fit h-fit'
             >
                 <HeroBadge />
             </div>
 
             {/* SVG with Dynamic Gradient Stroke */}
-            <svg width="554" height="543" viewBox="0 0 554 543" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <motion.svg width="554" height="543" viewBox="0 0 554 543" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                     {/* Fade Gradient */}
                     <linearGradient id="fade-gradient-top-bottom" x1="0" y1="0" x2="0" y2="1">
@@ -63,12 +63,21 @@ const DesktopSVG = () => {
                 </defs>
 
                 {/* SVG Path with Conditional Stroke */}
-                <path className={`${isactive ? "stroke-[url(#active-gradient)]" : "stroke-[#989191]"} transition-colors duration-500 delay-150 ease-in-out`}
-                    d="M39 543C39 377.918 243 364.44 243 173.01V1.50026M77 543C77 377.918 344 364.44 344 173.01V1.50026M115 543C115 377.918 450.5 364.44 450.5 173.01C450.5 -18.419 450.5 1.50026 450.5 1.50026M153 543C153 392 553 410 553 178.898V1.50026M0.5 543C0.5 377.5 140 394 140 173.01V1.5"
+                <motion.path
+                    initial={{ pathLength: 0 }}
+                    animate={{ pathLength: 1 }}
+                    transition={{
+                        delay: 0.6,
+                        duration: 6,
+                        type: 'spring',
+                    }}
+                    stroke={isactive ? "url(#active-gradient)" : "#989191"}
                     strokeWidth="1"
+                    fill="none"
                     mask="url(#fade-mask-top-bottom)"
+                    d="M39 543C39 377.918 243 364.44 243 173.01V1.50026M77 543C77 377.918 344 364.44 344 173.01V1.50026M115 543C115 377.918 450.5 364.44 450.5 173.01C450.5 -18.419 450.5 1.50026 450.5 1.50026M153 543C153 392 553 410 553 178.898V1.50026M0.5 543C0.5 377.5 140 394 140 173.01V1.5"
                 />
-            </svg>
+            </motion.svg>
         </motion.div>
     )
 }
