@@ -7,8 +7,8 @@ import { Reorder } from "framer-motion";
 const initialItems = ["📱 Review App Design", "🔍 User Research", "💻 Code Implementation", "🧪 Testing & QA"]
 
 export default function App() {
+    
     const [items, setItems] = useState(initialItems);
-    console.log(items);
 
     return (
         <div className="w-screen h-screen bg-neutral-100 flex items-center justify-center">

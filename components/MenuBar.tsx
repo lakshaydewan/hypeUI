@@ -2,7 +2,6 @@
 import type * as React from "react"
 import { motion } from "framer-motion"
 import { Home, Settings, Bell, User } from "lucide-react"
-import { useTheme } from "next-themes"
 
 interface MenuItem {
   icon: React.ReactNode
@@ -84,9 +83,6 @@ const sharedTransition = {
 }
 
 export function MenuBar() {
-  const { theme } = useTheme()
-
-  const isDarkTheme = theme === "dark"
 
   return (
     <motion.nav
@@ -95,10 +91,7 @@ export function MenuBar() {
       whileHover="hover"
     >
       <motion.div
-        className={`absolute -inset-2 bg-gradient-radial from-transparent ${
-          isDarkTheme
-            ? "via-blue-400/30 via-30% via-purple-400/30 via-60% via-red-400/30 via-90%"
-            : "via-blue-400/20 via-30% via-purple-400/20 via-60% via-red-400/20 via-90%"
+        className={`absolute -inset-2 bg-gradient-radial from-transparent ${"via-blue-400/20 via-30% via-purple-400/20 via-60% via-red-400/20 via-90%"
         } to-transparent rounded-3xl z-0 pointer-events-none`}
         variants={navGlowVariants}
       />

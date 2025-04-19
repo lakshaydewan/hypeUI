@@ -6,25 +6,12 @@ import Link from 'next/link';
 import { motion } from 'motion/react';
 import Showcase from '@/components/Showcase';
 import Footer from '@/components/Footer';
-import FlipFade from './flip/page';
+import FlipFade from '@/components/FlipText';
 
 const HomePage = () => {
 
   const [toggle, setToggle] = React.useState(false);
   const containerRef = useRef(null);
-  // const { scrollYProgress } = useScroll({
-  //   target: containerRef
-  // });
-  // const translateY1 = useTransform(scrollYProgress, [0, 0.2, 0.4, 0.6, 0.8, 1], [650, 0, 0, 0, 0, 0]);
-  // const translateX1 = useTransform(scrollYProgress, [0, 0.2, 0.4, 0.6, 0.8, 1], [0, -200, -200, -200, -200, -200]);
-  // const translateY2 = useTransform(scrollYProgress, [0, 0.2, 0.4, 0.6, 0.8, 1], [650, 650, 0, 0, 0, 0]);
-  // const translateX2 = useTransform(scrollYProgress, [0, 0.2, 0.4, 0.6, 0.8, 1], [0, 0, -100, -100, -100, -100]);
-  // const translateY3 = useTransform(scrollYProgress, [0, 0.2, 0.4, 0.6, 0.8, 1], [650, 650, 650, 0, 0, 0]);
-  // const translateX3 = useTransform(scrollYProgress, [0, 0.2, 0.4, 0.6, 0.8, 1], [0, 0, 0, -10, -10, -10]);
-  // const translateY4 = useTransform(scrollYProgress, [0, 0.2, 0.4, 0.6, 0.8, 1], [650, 650, 650, 650, 0, 0]);
-  // const translateX4 = useTransform(scrollYProgress, [0, 0.2, 0.4, 0.6, 0.8, 1], [0, 0, 0, 0, 100, 100]);
-
-
 
   useEffect(() => {
     const iD = setInterval(() => { setToggle(!toggle) }, 1500);

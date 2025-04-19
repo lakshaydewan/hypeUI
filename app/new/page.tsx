@@ -23,7 +23,9 @@ const Page = () => {
       <div className="flex justify-center rounded-full items-center">
         {
           links.map((_, index) => (
-            <div onClick={() => handleLinkClick(index)} key={index} className={`w-20 h-10 relative rounded-full flex items-center justify-center cursor-pointer`}>
+            <div onClick={()=> {
+              handleLinkClick(index)
+            }} key={index} className={`w-20 h-10 relative rounded-full flex items-center justify-center cursor-pointer`}>
                 <span className="mix-blend-exclusion z-10">{_.name}</span>
               {
                 index == activeLink && (
