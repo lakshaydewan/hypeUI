@@ -1,3 +1,5 @@
+'use client'
+import { motion } from 'motion/react'
 import React from 'react'
 import SearchBar from './SearchBar'
 import Logo from './Logo'
@@ -19,8 +21,12 @@ const socialsLinks = [
 
 const Navbar = () => {
     return (
-        <div className='fixed top-0 z-50 left-0 w-full h-fit flex justify-center items-center'>
-            <div className='w-[95%] h-fit shadow-2xl border border-neutral-400 py-1 bg-white dark:bg-neutral-950 dark:border dark:border-neutral-800 rounded-lg mt-4 flex flex-row justify-between items-center'>
+        <motion.div
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ type: 'spring', delay: 0.7 }}
+        className='fixed top-0 z-50 left-0 w-full h-fit flex justify-center items-center'>
+            <div className='w-[95%] h-fit shadow-2xl border border-neutral-400 py-1 bg-white dark:bg-neutral-950 dark:border dark:border-neutral-800 rounded-lg mt-3 flex flex-row justify-between items-center'>
                 <div className='flex justify-center items-center gap-5'>
                     <Logo />
                     <div className='hidden lg:flex flex-row gap-5 items-center'>
@@ -50,7 +56,7 @@ const Navbar = () => {
                     <FullScreenNav />
                 </div>
             </div>
-        </div>
+        </motion.div>
     )
 }
 

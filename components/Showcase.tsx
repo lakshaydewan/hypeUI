@@ -22,11 +22,9 @@ const Showcase = () => {
 
     return (
         <>
-            <div className='w-screen h-screen bg-white flex flex-col justify-center items-center'>
-                <h1 className='text-center tracking-tight text-4xl font-bold text-neutral-900 mt-10 mb-5'>
-                    UI Components That Move with You
-                    <br />
-                    <span className='text-primary'>literally</span>
+            <div className='w-screen h-screen dark:bg-neutral-950 bg-white flex flex-col justify-center items-center'>
+                <h1 className='text-center bg-clip-text  text-transparent bg-gradient-to-b dark:from-white dark:to-neutral-300 from-neutral-950 to-neutral-600 tracking-tight text-3xl sm:text-4xl md:text-6xl font-bold mt-10 mb-5'>
+                    Experience the Motion
                 </h1>
                 <div
                     className="w-[90%] h-[55vh] rounded-lg px-6 py-6 overflow-x-hidden mx-auto relative"
@@ -47,7 +45,7 @@ const Showcase = () => {
                         animate={{ x: translateX }} // Apply horizontal translation
                         transition={{ type: "spring", stiffness: 100, damping: 50 }}
                     >
-                        {["red", "blue", "green", "yellow", "purple", "green", "yellow"].map((color, index) => (
+                        {["red", "blue", "green", "yellow", "purple", "green", "yellow"].map((_, index) => (
                             <div
                                 key={index}
                                 className={`w-[65vw] flex justify-center items-center border shadow-lg sm:w-[60vw] lg:w-[35vw] h-full bg-white flex-shrink-0 rounded-lg`}
@@ -60,15 +58,15 @@ const Showcase = () => {
                 <AnimatePresence>
                     {isHovered && ( // Conditionally render the motion.div
                         <motion.div
-                            initial={{ scale: 0.2, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
-                            exit={{ opacity: 0, scale: 0.2 }}
-                            transition={{ duration: 0.2, ease: "easeOut" }}
+                            initial={{ scale: 0 }}
+                            animate={{ scale: 1 }}
+                            exit={{ opacity: 0, scale: 0 }}
+                            transition={{ ease: 'backOut' }}
                             style={{
                                 x: pointer.x - 80,
                                 y: pointer.y - 34,
                             }}
-                            className="bg-neutral-950 z-50 pointer-events-none w-fit border fixed top-0 left-0 text-white rounded-full py-3 px-7 font-sans font-semibold flex gap-1 justify-center items-center"
+                            className="bg-neutral-950 transition-all duration-300 ease-out origin-bottom-left z-50 pointer-events-none w-fit border fixed top-0 left-0 text-white rounded-full py-3 px-7 font-sans font-semibold flex gap-1 justify-center items-center"
                         >
                             <div className='p-0 h-fit w-fit'>View Code</div>
                             <Icon3dCubeSphere stroke={1} className='size-6 animate-spin duration-1000 text-white group-hover:animate-spin' />

@@ -7,6 +7,7 @@ import { motion } from 'motion/react';
 import Showcase from '@/components/Showcase';
 import Footer from '@/components/Footer';
 import FlipFade from '@/components/FlipText';
+import GifReveal from '@/components/GifReveal';
 
 const HomePage = () => {
 
@@ -59,7 +60,7 @@ const HomePage = () => {
                   delay: 0.4,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="text-sm mt-10 border bg-white text-neutral-950 font-sans font-bold py-5 px-7 rounded-xl transition-all duration-300 ease-out"
+                className="text-sm mt-10 border hover:shadow-lg bg-white text-neutral-950 font-sans font-bold py-5 px-7 rounded-xl transition-all duration-300 ease-out"
               >
                 Browse Components
               </motion.button>
@@ -73,34 +74,6 @@ const HomePage = () => {
           <div className='w-[90vw] overflow-hidden border dark:border-neutral-800 relative shadow-2xl rounded-3xl h-[70vh] md:h-[90vh] flex flex-col justify-center items-center'>
             <div className='absolute bottom-[-80px] rounded-2xl right-[-50px] md:w-[90%] w-[95%] h-[90%] border dark:border-neutral-800 bg-neutral-200 dark:bg-neutral-600 flex flex-col justify-center items-center'>
             </div>
-            {/* <motion.div style={{
-            y: translateY1,
-            x: translateX1,
-            rotate: 3,
-          }} className='md:w-[35%] border absolute h-[65%] rounded-xl bg-white shadow-2xl flex flex-col justify-center items-center'>
-                hi there
-              </motion.div>
-              <motion.div style={{
-            y: translateY2,
-            x: translateX2,
-            rotate: 8,
-          }} className='md:w-[35%] absolute h-[65%] rounded-xl bg-neutral-950 flex flex-col justify-center items-center'>
-                hi there
-              </motion.div>
-              <motion.div style={{
-            y: translateY3,
-            x: translateX3,
-            rotate: -4,
-          }} className='md:w-[35%] absolute h-[65%] rounded-xl bg-neutral-950 flex flex-col justify-center items-center'>
-                hi there
-              </motion.div>
-              <motion.div style={{
-            y: translateY4,
-            x: translateX4,
-            rotate: 12,
-          }} className='md:w-[35%] absolute h-[65%] rounded-xl bg-neutral-950 flex flex-col justify-center items-center'>
-                hi there
-              </motion.div> */}
             <div className='text-center absolute top-12 left-12 text-2xl md:text-4xl font-sans font-bold'>
               <h1 className='dark:text-white text-neutral-950 font-sans font-bold'>Just as simple as</h1>
               <span className='text-primary'>CTRL + </span>
@@ -125,6 +98,7 @@ const HomePage = () => {
         </div>
       </div>
       <Showcase />
+      <GifReveal />
       <Footer />
     </>
   )
