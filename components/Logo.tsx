@@ -9,7 +9,7 @@ const Logo = () => {
         <div className='size-8 flex justify-center items-center'>
           <Icon size={30} />
         </div>
-        <Link href='/' className='text-neutral-950 dark:text-white font-sans font-bold text-2xl'>HypeUI</Link>
+        <Link href='/' className='text-neutral-950 dark:text-white font-sans font-bold text-2xl'>hypeUI</Link>
     </div> 
   )
 }

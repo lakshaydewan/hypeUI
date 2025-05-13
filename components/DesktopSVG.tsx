@@ -13,7 +13,6 @@ const DesktopSVG = () => {
             animate={{ opacity: 1, y: 0, }}
             transition={{ duration: 2, ease: "backOut", delay: 0.5 }}
             className='hidden lg:block w-fit h-fit relative'>
-            {/* Tech Badges */}
             <div className='absolute top-14 left-20 w-fit h-fit'>
                 <TechBadge isactive={isactive} name='Next.js' />
             </div>
@@ -29,8 +28,6 @@ const DesktopSVG = () => {
             <div className='absolute top-[330px] left-[390px] w-fit h-fit'>
                 <TechBadge isactive={isactive} name='TypeScript' />
             </div>
-
-            {/* Hero Badge (Triggers Gradient Effect) */}
             <div
                 onMouseEnter={() => setIsactive(true)}
                 onMouseLeave={() => setIsactive(false)}
@@ -38,31 +35,22 @@ const DesktopSVG = () => {
             >
                 <HeroBadge />
             </div>
-
-            {/* SVG with Dynamic Gradient Stroke */}
             <motion.svg width="554" height="543" viewBox="0 0 554 543" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <defs>
-                    {/* Fade Gradient */}
                     <linearGradient id="fade-gradient-top-bottom" x1="0" y1="0" x2="0" y2="1">
                         <stop offset="0%" stopColor="white" stopOpacity="0"></stop>
                         <stop offset="10%" stopColor="white" stopOpacity="1"></stop>
                         <stop offset="90%" stopColor="white" stopOpacity="1"></stop>
                         <stop offset="100%" stopColor="white" stopOpacity="0"></stop>
                     </linearGradient>
-
-                    {/* Active Gradient (Blue-Purple) */}
                     <linearGradient id="active-gradient" x1="0" y1="0" x2="1" y2="1">
                         <stop offset="0%" stopColor="#00CFFF" />
                         <stop offset="100%" stopColor="#8A2BE2" />
                     </linearGradient>
-
-                    {/* Mask for Fade Effect */}
                     <mask id="fade-mask-top-bottom">
                         <rect x="0" y="0" width="100%" height="100%" fill="url(#fade-gradient-top-bottom)" />
                     </mask>
                 </defs>
-
-                {/* SVG Path with Conditional Stroke */}
                 <motion.path
                     initial={{ pathLength: 0 }}
                     animate={{ pathLength: 1 }}

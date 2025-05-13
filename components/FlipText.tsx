@@ -1,9 +1,15 @@
 'use client'
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
+import { cn } from "@/lib/utils";
 
-export default function FlipFade() {
-    const arr = ["better", "cleaner", "cooler", "louder"];
+interface FlipFadeProps {
+    textArray?: string[];
+    className?: string;
+}
+
+export default function FlipFade({textArray = ["better", "cleaner", "cooler", "louder"], className}: FlipFadeProps) {
+    const arr = textArray;
     const [active, setActive] = useState<number>(0);
 
     useEffect(() => {
@@ -31,7 +37,7 @@ export default function FlipFade() {
                     }
                 }}
                 transition={{ type: 'spring', damping: 20, stiffness: 350 }}
-                className="text-neutral-950 dark:text-white origin-top-left"
+                className={cn("text-neutral-950 dark:text-white origin-top-left", className)}
                 style={{
                     transformStyle: 'preserve-3d',
                 }}

@@ -6,9 +6,13 @@ import { Reorder } from "framer-motion";
 
 const initialItems = ["📱 Review App Design", "🔍 User Research", "💻 Code Implementation", "🧪 Testing & QA"]
 
-export default function App() {
+interface ItemProps {
+    items?: string[];
+}
+
+export default function DragableItems({items = initialItems}: ItemProps) {
     
-    const [items, setItems] = useState(initialItems);
+    const [itemsToMap, setItems] = useState(items || initialItems);
 
     return (
         <div className="w-screen h-screen bg-neutral-100 flex items-center justify-center">
@@ -16,7 +20,7 @@ export default function App() {
             <h2 className="text-2xl font-semibold text-slate-800 mb-2">Project Workflow</h2>
             <p className="text-sm text-slate-500 mb-6">Drag to reorder project phases</p>
             <Reorder.Group axis="y" onReorder={setItems} values={items}>
-                {items.map((item) => (
+                {itemsToMap.map((item) => (
                     <Item key={item} item={item} />
                 ))}
             </Reorder.Group>

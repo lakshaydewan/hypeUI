@@ -1,12 +1,13 @@
 "use client"
+import { cn } from '@/lib/utils';
 import React, {useEffect, useRef} from 'react'
 
-const HackerHaiBhai = () => {
+const HackerEffect = ({text, className}: {text: string, className?: string}) => {
 
     const letters = [
-        'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
-        'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
-        'U', 'V', 'W', 'X', 'Y', 'Z'
+        'A', 'B', 'C', 'D', '#', 'F', 'G', 'H', 'I', 'J',
+        'K', 'L', 'M', '$', 'O', 'P', 'Q', '@', 'S', 'T',
+        'U', '%', 'W', 'X', 'Y', 'Z'
       ];
 
       const wordRef = useRef<HTMLHeadingElement>(null)
@@ -15,16 +16,11 @@ const HackerHaiBhai = () => {
         const word = wordRef.current;
     
         if (word) {
-          console.log(word.innerText); // Accessing innerText
-    
-          // Add the 'mouseover' event listener
-          const handleMouseOver = (event: MouseEvent) => {
-            const def_value = "HYPERPLEXED"
-            console.log('Mouse over the word:', event);
-            console.log("innerText: "+word.innerText)
+          const handleMouseOver = () => {
+            const def_value = text.toUpperCase();
             let iteration = 0;
             const intervalID = setInterval(()=> {
-              const newWORD = word.innerText.split("").map((letter: any, index: any) => {
+              const newWORD = word.innerText.split("").map((_, index) => {
                 if (index < iteration) {
                     return def_value[index];
                 }
@@ -36,25 +32,19 @@ const HackerHaiBhai = () => {
                 clearInterval(intervalID);
               }
               iteration += 1 / 2;
-            }, 30)
-            
+            }, 40);
           };
     
           word.addEventListener('mouseover', handleMouseOver);
     
-          // Cleanup the event listener when the component unmounts
           return () => {
             word.removeEventListener('mouseover', handleMouseOver);
           };
         }
       });
   return (
-    <div className='h-screen w-screen bg-black flex justify-center items-center'>
-        <div>
-            <h1 id='word' ref={wordRef} className='custom-font text-white'>HYPERPLEXED</h1>
-        </div>
-    </div>
+            <span id='word' ref={wordRef} className={cn('font-sans cursor-pointer text-white', className)}>{text.toUpperCase()}</span>
   )
 }
 
-export default HackerHaiBhai
+export default HackerEffect;

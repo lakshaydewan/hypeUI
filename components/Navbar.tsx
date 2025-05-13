@@ -10,7 +10,7 @@ import FullScreenNav from './FullScreenNav'
 const links = [
     { name: 'Components', href: '/components',  },
     { name: 'Buttons', href: '/buttons' },
-    { name: 'Pricing', href: '/pricing' },
+    { name: 'Sections', href: '/sections' },
     { name: 'Showcase', href: '/showcase', isNew:true },
 ]
 
@@ -24,7 +24,7 @@ const Navbar = () => {
         <motion.div
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ type: 'spring', delay: 0.7 }}
+        transition={{ type: 'spring', delay: 0.8 }}
         className='fixed top-0 z-50 left-0 w-full h-fit flex justify-center items-center'>
             <div className='w-[95%] h-fit shadow-2xl border border-neutral-400 py-1 bg-white dark:bg-neutral-950 dark:border dark:border-neutral-800 rounded-lg mt-3 flex flex-row justify-between items-center'>
                 <div className='flex justify-center items-center gap-5'>

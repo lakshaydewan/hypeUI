@@ -11,7 +11,6 @@ export default function ThemeToggle() {
     setMounted(true);
   }, []);
 
-  // Avoid hydration errors by ensuring rendering only after mounting
   if (!mounted) return null;
 
   return (

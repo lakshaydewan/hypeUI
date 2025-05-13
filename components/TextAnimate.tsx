@@ -1,19 +1,22 @@
 'use client'
-import React, { useState } from 'react'
+import React from 'react'
 import { motion } from 'framer-motion'
 
-const TextAnimate = () => {
-    const line = "To make your React component library feel cutting edge, let's pull inspiration from Awwwards winning websites. Here are some trendy components you might want to include."
-    const words = line.split(" ")
+interface TextAnimateProps {
+    text: string;
+    delay?: number;
+}
 
-    const [animationKey, setAnimationKey] = useState(0)
+const TextAnimate = ({text, delay}: TextAnimateProps) => {
+    const line = text;
+    const words = line.split(" ")
 
     const containerVariants = {
         hidden: { opacity: 1 },
         visible: {
             opacity: 1,
             transition: { staggerChildren: 0.05 },
-        },
+        }
     }
 
     const wordVariants = {
@@ -21,36 +24,28 @@ const TextAnimate = () => {
         visible: { 
             opacity: 1, 
             y: 0, 
-            transition: { duration: 0.3, ease: "easeOut" } 
+            transition: { duration: 0.3, ease: "easeOut" }, 
         },
     }
 
     return (
-        <div className='flex flex-col justify-center items-center h-screen gap-6'>
             <motion.div 
-                key={animationKey}
-                className='w-[50%] h-fit flex flex-wrap gap-x-1' 
+                className='w-full h-fit flex flex-wrap items-center lg:justify-start justify-center gap-x-1 px-auto text-center lg:pr-2 pt-2' 
                 variants={containerVariants}
                 initial="hidden"
                 animate="visible"
+                transition={{ delay: delay}}
             >
                 {words.map((text, index) => (
                     <motion.span 
                         key={index}
                         variants={wordVariants}
-                        className='relative h-fit w-fit font-sans font-semibold text-xl text-white'
+                        className='relative h-fit w-fit font-sans font-light text-lg text-neutral-800 dark:text-primary'
                     >
                         {text + " "}
                     </motion.span>
                 ))}
             </motion.div>
-            <button 
-                onClick={() => setAnimationKey(prev => prev + 1)}
-                className='px-6 py-2 bg-white text-black font-semibold rounded-md shadow-lg hover:scale-105 transition-transform'
-            >
-                Animate Text
-            </button>
-        </div>
     )
 }
 

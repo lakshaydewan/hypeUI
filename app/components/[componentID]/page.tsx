@@ -10,13 +10,14 @@ const ComponentPage = async ({params} : PageProps) => {
 
   const { componentID } = await params
   console.log(componentID);
+
   if (componentID === undefined) {
     return <div>
       INVALID URL
     </div>
   }
 
-  const component = components_data[componentID[0]];
+  const component = components_data[componentID];
 
   console.log(component);
 
