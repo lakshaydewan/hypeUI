@@ -39,7 +39,7 @@ const Showcase = () => {
                 </h1>
                 <div
                     ref={ref}
-                    className="w-[90%] h-[55vh] rounded-lg px-6 py-6 overflow-x-hidden mx-auto relative"
+                    className="w-[90%] h-[40vh] md:h-[55vh] rounded-lg px-6 py-6 overflow-x-hidden mx-auto relative"
                     onMouseMove={handleMouseMove}
                 >
                     <motion.div

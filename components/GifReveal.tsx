@@ -28,7 +28,7 @@ const GifReveal = () => {
                     onViewportEnter={() => setAnimateText(true)}
                     className='font-sans font-extrabold bg-clip-text text-transparent bg-gradient-to-b dark:from-white dark:to-neutral-300 from-neutral-950 to-neutral-600 text-3xl md:text-5xl py-2 pb-3'>Motion, the Smart Way.</motion.h1>
                     {
-                        animateText && <div className='flex flex-wrap w-full h-fit text-center lg:text-left'>
+                        animateText && <div className='flex flex-wrap gap-[1px] w-full h-fit pl-4 lg:pl-0 lg:pr-8'>
                             {text.split(' ').map((item, index) => (
                                 <div key={index} className='flex justify-center items-center'>
                                     <Core delay={index * 0.05} text={item} />
@@ -60,7 +60,7 @@ const GifReveal = () => {
                         <h1 className='translate-y-[0px] dark:text-white text-neutral-950 md:translate-y-[10px]'>SEE</h1>
                         <motion.div
                             style={{ height }}
-                            className='w-[320px] dark:border-neutral-800 bg-gradient-to-br from-neutral-600 to-neutral-800 dark:from-neutral-800 dark:to-neutral-900 bg-neutral-200 dark:bg-neutral-600 rounded-xl relative overflow-hidden md:w-[460px] origin-bottom'
+                            className='w-[320px] dark:border-neutral-800 bg-gradient-to-br from-neutral-600 to-neutral-800 dark:from-neutral-800 dark:to-neutral-900 bg-neutral-200 dark:bg-neutral-600 rounded relative overflow-hidden md:w-[460px] origin-bottom'
                         >
                             <motion.div
                                 className='absolute bottom-0 w-[320px] md:w-[460px] h-[340px] flex flex-col justify-center items-center'>

@@ -35,12 +35,12 @@ const HomePage = () => {
               initial={{ opacity: 0, filter: 'blur(10px)' }}
               animate={{ opacity: 1, filter: 'blur(0px)' }}
               transition={{ duration: 0.5, ease: "easeOut", delay: 0 }}
-              className='text-5xl bg-clip-text text-transparent bg-gradient-to-b from-neutral-950 to-neutral-600 dark:from-white dark:to-neutral-300 md:text-6xl font-sans font-[900]'>Build faster,</motion.div>
+              className='text-4xl bg-clip-text text-transparent bg-gradient-to-b from-neutral-950 to-neutral-600 dark:from-white dark:to-neutral-300 md:text-6xl font-sans font-[900]'>Build faster,</motion.div>
             <motion.div
               initial={{ opacity: 0, filter: 'blur(10px)' }}
               animate={{ opacity: 1, filter: 'blur(0px)' }}
               transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }}
-              className='text-5xl bg-clip-text text-transparent bg-gradient-to-b from-neutral-950 to-neutral-600 dark:from-white dark:to-neutral-300 md:text-6xl font-sans flex justify-center items-center gap-2 font-[900]'>Create <FlipFade /></motion.div>
+              className='text-4xl bg-clip-text text-transparent bg-gradient-to-b from-neutral-950 to-neutral-600 dark:from-white dark:to-neutral-300 md:text-6xl font-sans flex justify-center items-center gap-2 font-[900]'>Create <FlipFade /></motion.div>
             <TextAnimate delay={0.8} text={"Empower your development process with a collection of easy-to-use, customizable components that bring your vision to life quickly and beautifully."}></TextAnimate>
             <Link href={"/components"} className='flex gap-4 md:gap-0 justify-center items-center'>
               <motion.button
@@ -61,11 +61,11 @@ const HomePage = () => {
         </div>
       </div>
       <div ref={containerRef} className='h-fit relative text-white bg-white w-screen dark:bg-neutral-950 flex flex-col justify-center items-center'>
-        <div className='w-screen h-screen flex flex-col justify-center items-center'>
-          <div className='w-[90vw] overflow-hidden border dark:border-neutral-800 relative shadow-2xl rounded-3xl h-[70vh] md:h-[90vh] flex flex-col justify-center items-center'>
-            <div className='absolute bottom-[-80px] rounded-2xl right-[-50px] md:w-[90%] w-[95%] h-[90%] border dark:border-neutral-800 bg-neutral-200 dark:bg-neutral-600 flex flex-col justify-center items-center'>
+        <div className='w-screen h-fit md:pb-16 flex flex-col justify-start items-center'>
+          <div className='w-[90vw] overflow-hidden border dark:border-neutral-800 relative shadow-2xl rounded-3xl h-[50vh] md:h-[90vh] flex flex-col justify-center items-center'>
+            <div className='absolute bottom-[-65px] md:bottom-[-80px] rounded-2xl right-[-50px] md:w-[90%] w-[95%] h-[90%] border dark:border-neutral-800 bg-neutral-200 dark:bg-neutral-600 flex flex-col justify-center items-center'>
             </div>
-            <div className='text-center absolute top-12 left-12 text-2xl md:text-4xl font-sans font-bold'>
+            <div className='text-center absolute top-6 left-6 md:top-12 md:left-12 text-2xl md:text-4xl font-sans font-bold'>
               <h1 className='dark:text-white text-neutral-950 font-sans font-bold'>Just as simple as</h1>
               <span className='text-primary'>CTRL + </span>
               {

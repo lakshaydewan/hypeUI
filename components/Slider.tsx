@@ -78,10 +78,10 @@ export default function Slider({onChange, hideNumber}: {onChange: (value: string
                   }}
                   className="relative rounded-full overflow-hidden w-full"
                 >
-                  <div className="h-full bg-white/20" />
+                  <div className="h-full dark:bg-white/20 bg-neutral-500" />
                   <motion.div
                     style={{ width }}
-                    className="bg-white absolute w-[20%] inset-0"
+                    className="dark:bg-white bg-neutral-900 absolute w-[20%] inset-0"
                   />
                 </motion.div>
               </motion.div>
