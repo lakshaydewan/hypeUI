@@ -2,6 +2,7 @@
 import React from 'react'
 import { useState } from 'react';
 import { CodeBlock } from './ui/code-block';
+import { IconReload } from '@tabler/icons-react';
 
 interface MainInfoProps {
     componentName: string;
@@ -14,6 +15,7 @@ interface MainInfoProps {
 const MainInfo = ({ componentName, componentDescription, component, code, tags }: MainInfoProps) => {
 
     const [activeTab, setActiveTab] = useState('preview')
+    const [key, setKey] = useState(0)
 
     return (
         <div className='w-full h-full flex flex-col justify-center items-center'>
@@ -36,7 +38,10 @@ const MainInfo = ({ componentName, componentDescription, component, code, tags }
             </div>
             <div className='border border-zinc-300 dark:border-neutral-800 overflow-hidden rounded-xl w-full h-[80vh] flex flex-col justify-center items-center'>
                 {
-                    activeTab === 'preview' && <div className='w-full rounded-xl shadow-xl h-full flex justify-center items-center'>
+                    activeTab === 'preview' && <div key={key} className='w-full relative rounded-xl shadow-xl h-full flex justify-center items-center'>
+                        <span onClick={()=> {
+                            setKey(key + 1)
+                        }} className='p-1.5 bg-neutral-200 dark:bg-neutral-800 rounded-md cursor-pointer group absolute top-6 right-6'><IconReload size={16} stroke={2} className='text-neutral-500 group-hover:-rotate-45 transition-all duration-300 ease-out dark:text-neutral-400' /></span>
                         {component}
                     </div>
                 }{

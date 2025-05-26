@@ -2,7 +2,7 @@
 import { cn } from '@/lib/utils';
 import React, {useEffect, useRef} from 'react'
 
-const HackerEffect = ({text, className}: {text: string, className?: string}) => {
+const HackerEffect = ({text = 'HACKER_EFFECT', className}: {text: string, className?: string}) => {
 
     const letters = [
         'A', 'B', 'C', 'D', '#', 'F', 'G', 'H', 'I', 'J',
@@ -28,7 +28,7 @@ const HackerEffect = ({text, className}: {text: string, className?: string}) => 
               }).join("");
               console.log(newWORD);
               word.innerText = newWORD;
-              if (iteration > 10) {
+              if (iteration > newWORD.length) {
                 clearInterval(intervalID);
               }
               iteration += 1 / 2;
@@ -43,7 +43,7 @@ const HackerEffect = ({text, className}: {text: string, className?: string}) => 
         }
       });
   return (
-            <span id='word' ref={wordRef} className={cn('font-sans cursor-pointer text-white', className)}>{text.toUpperCase()}</span>
+            <span id='word' ref={wordRef} className={cn('font-sans font-semibold text-lg cursor-pointer text-neutral-950 dark:text-white', className)}>{text.toUpperCase()}</span>
   )
 }
 

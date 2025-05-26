@@ -28,10 +28,10 @@ const GifReveal = () => {
                     onViewportEnter={() => setAnimateText(true)}
                     className='font-sans font-extrabold bg-clip-text text-transparent bg-gradient-to-b dark:from-white dark:to-neutral-300 from-neutral-950 to-neutral-600 text-3xl md:text-5xl py-2 pb-3'>Motion, the Smart Way.</motion.h1>
                     {
-                        animateText && <div className='flex flex-wrap gap-[1px] w-full h-fit pl-4 lg:pl-0 lg:pr-8'>
+                        animateText && <div className='flex flex-wrap gap-[4px] w-full h-fit pl-4 lg:pl-0 lg:pr-8'>
                             {text.split(' ').map((item, index) => (
                                 <div key={index} className='flex justify-center items-center'>
-                                    <Core delay={index * 0.05} text={item} />
+                                    <Core delay={0.2 + (index * 0.05)} text={item} />
                                 </div>
                             ))}
                         </div>

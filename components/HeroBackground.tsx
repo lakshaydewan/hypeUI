@@ -4,7 +4,7 @@ import { motion } from 'motion/react'
 
 const HeroBackground = () => {
   return (
-    <div className='bg-white dark:bg-neutral-950 absolute top-0 left-0 h-[100vh] w-screen flex flex-col justify-between items-center'>
+    <div className='bg-white dark:bg-neutral-950 absolute top-0 left-0 h-[100vh] lg:h-[110vh] w-screen flex flex-col justify-between items-center'>
       <div className='bg-white dark:bg-neutral-950 flex flex-col justify-center items-center fade-container'>
         <svg width="1417" height="294" stroke='#989191' viewBox="0 0 1417 294" xmlns="http://www.w3.org/2000/svg" className="block mask-gradient fill-none h-auto w-[80%]">
         <motion.path

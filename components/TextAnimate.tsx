@@ -1,13 +1,15 @@
 'use client'
 import React from 'react'
 import { motion } from 'framer-motion'
+import { Core } from './AnimatedText';
 
 interface TextAnimateProps {
     text: string;
-    delay?: number;
+    delay: number;
+    type?: 'box' | 'fade';
 }
 
-const TextAnimate = ({text, delay}: TextAnimateProps) => {
+const TextAnimate = ({text = "Drop in our animation wrappers to add layout transitions and entrance animations to any dynamic list — with just 4 lines.", delay = 0.5, type = 'box'} : TextAnimateProps) => {
     const line = text;
     const words = line.split(" ")
 
@@ -26,6 +28,18 @@ const TextAnimate = ({text, delay}: TextAnimateProps) => {
             y: 0, 
             transition: { duration: 0.3, ease: "easeOut" }, 
         },
+    }
+
+    if (type === 'box') {
+        return (
+            <div className='max-w-lg mt-1 h-fit flex flex-wrap gap-[4px] items-center lg:justify-start justify-center text-center lg:pr-4 pt-2'>
+                {
+                    text.split(" ").map((word, index) => (
+                        <Core key={index} delay={delay + (index * 0.05)} text={word}></Core>
+                    ))
+                }
+            </div>
+        )
     }
 
     return (

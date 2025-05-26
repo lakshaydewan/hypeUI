@@ -2,6 +2,7 @@ import ComponentSideBar from '@/components/ComponentSideBar';
 import ComponentCard from '@/components/ComponentCard';
 import React from 'react'
 import GradientBtn from '@/components/buttons/Gradient';
+import { components_data } from '@/lib/data';
 
 const ComponentsPage = () => {
     return (
@@ -12,14 +13,11 @@ const ComponentsPage = () => {
                     <GradientBtn />
                 </div>
                 <div className='w-[90%] rounded-lg pb-3 h-full overflow-y-scroll md:grid md:grid-cols-2 flex flex-col gap-8'>
-                    <ComponentCard href={'/components/button'} title='Component 1' description='This is a component card' image='https://picsum.photos/300/300' />
-                    <ComponentCard href={'/components/component-2'} title='Component 2' description='This is a component card' image='https://picsum.photos/300/300' />
-                    <ComponentCard href={'/components/component-3'} title='Component 3' description='This is a component card' image='https://picsum.photos/300/300' />
-                    <ComponentCard href={'/components/component-4'} title='Component 4' description='This is a component card' image='https://picsum.photos/300/300' />
-                    <ComponentCard href={'/'} title='Component 5' description='This is a component card' image='https://picsum.photos/300/300' />
-                    <ComponentCard href={'/'} title='Component 6' description='This is a component card' image='https://picsum.photos/300/300' />
-                    <ComponentCard href={'/'} title='Component 7' description='This is a component card' image='https://picsum.photos/300/300' />
-                    <ComponentCard href={'/'} title='Component 8' description='This is a component card' image='https://picsum.photos/300/300' />
+                    {
+                        components_data.map((comp, index)=> (
+                            <ComponentCard key={index} href={`/components/${index}`} title={comp.name} description={comp.description} image='https://picsum.photos/300/300' />
+                        ))
+                    }
                 </div>
             </div>
         </div>

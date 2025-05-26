@@ -4,6 +4,7 @@ import { Icon3dCubeSphere } from "@tabler/icons-react"
 import { useRef, useState } from "react"
 import type React from "react"
 import Slider from "./Slider"
+import { useRouter } from "next/navigation"
 
 const Showcase = () => {
 
@@ -11,15 +12,17 @@ const Showcase = () => {
     const [pointer, setPointer] = useState({ x: 0, y: 0 })
     const [isHovered, setIsHovered] = useState(false)
     const ref = useRef<HTMLDivElement>(null)
-    
+    const [currentLink, setCurrentLink] = useState<string | null>(null)
+    const router = useRouter();
+
     const linksForGifs = [
-        "/gifs/one.mp4",
-        "/gifs/two.mp4",
-        "/gifs/three.mp4",
-        "/gifs/four.mp4",
-        "/gifs/five.mp4",
-        "/gifs/six.mp4",
-        "/gifs/seven.mp4",
+        { videoLink: "/gifs/one.mp4", redirectLink: "/components/0" },
+        { videoLink: "/gifs/two.mp4", redirectLink: "/components/1" },
+        { videoLink: "/gifs/three.mp4", redirectLink: "/components/2" },
+        { videoLink: "/gifs/four.mp4", redirectLink: "/components/3" },
+        { videoLink: "/gifs/five.mp4", redirectLink: "/components/4" },
+        { videoLink: "/gifs/six.mp4", redirectLink: "/components/6" },
+        { videoLink: "/gifs/seven.mp4", redirectLink: "/components/7" },
     ]
 
     const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -43,22 +46,29 @@ const Showcase = () => {
                     onMouseMove={handleMouseMove}
                 >
                     <motion.div
+                        onClick={() => {
+                            if (currentLink === null) return
+                            console.log(currentLink)
+                            router.push(currentLink)
+                        }}
                         onMouseEnter={() => {
                             console.log("mouseEnter")
                             setIsHovered(true)
-                            console.log(isHovered)
                         }}
                         onMouseLeave={() => {
                             console.log("mouseLeave")
                             setIsHovered(false)
-                            console.log(isHovered)
                         }}
                         className="flex h-full hover:cursor-pointer flex-nowrap space-x-4 w-max"
                         animate={{ x: translateX }}
                         transition={{ type: "spring", stiffness: 100, damping: 50 }}
                     >
-                        {linksForGifs.map((src, index) => (
+                        {linksForGifs.map((item, index) => (
                             <div
+                                onMouseEnter={() => {
+                                    setCurrentLink(item.redirectLink)
+                                    console.log(currentLink)
+                                }}
                                 key={index}
                                 className={`w-[65vw] relative flex justify-center z-10 overflow-hidden items-center border rounded-xl dark:border-neutral-700 border-neutral-300 shadow-lg shadow-neutral-400/10 sm:w-[60vw] lg:w-[35vw] h-full bg-gradient-to-br from-neutral-600 to-neutral-800 dark:from-neutral-800 dark:to-neutral-900 flex-shrink-0`}
                             >
@@ -70,7 +80,7 @@ const Showcase = () => {
                                         loop
                                         muted
                                         className="object-cover -z-10 overflow-hidden object-center w-full h-full rounded-xl"
-                                        src={src}
+                                        src={item.videoLink}
                                     />
                                 </div>
                                 <span className="absolute top-1.5 left-2 flex gap-1">
@@ -91,11 +101,12 @@ const Showcase = () => {
                             transition={{ ease: "backOut" }}
                             style={{
                                 x: pointer.x - 80,
-                                y: pointer.y - 34,
+                                y: pointer.y - 30,
                             }}
-                            className="bg-gradient-to-r hidden from-neutral-800 to-neutral-900 transition-all duration-300 ease-out origin-bottom-left z-50 pointer-events-none w-fit border border-neutral-700 fixed top-0 left-0 text-neutral-100 rounded-full py-3 px-7 font-sans font-semibold md:flex gap-1 justify-center items-center"
+                            className="bg-gradient-to-r cursor-none pointer-events-none hidden from-neutral-800 to-neutral-900 transition-all duration-300 ease-out origin-bottom-left z-40 w-fit border border-neutral-700 fixed top-0 left-0 text-neutral-100 rounded-full py-3 px-7 font-sans font-semibold md:flex gap-1 justify-center items-center"
                         >
-                            <div className="p-0 h-fit w-fit">View Code</div>
+                            <div
+                                className="p-0 h-fit w-fit z-50">View Code</div>
                             <Icon3dCubeSphere
                                 stroke={1}
                                 className="size-6 animate-spin duration-1000 text-neutral-300 group-hover:animate-spin"

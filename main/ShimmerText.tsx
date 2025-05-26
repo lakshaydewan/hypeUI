@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-export default function ShimmerText({ text, className }: { text: string, className?: string }) {
+export default function ShimmerText({ text = "Analyzing", className }: { text: string, className?: string }) {
     return (
         <div className={cn("relative inline-block text-lg font-sans font-semibold bg-clip-text text-transparent bg-gradient-to-b from-neutral-700 to-neutral-500 dark:from-neutral-500 dark:to-neutral-400", className)}>
             {text}

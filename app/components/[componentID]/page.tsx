@@ -17,7 +17,7 @@ const ComponentPage = async ({params} : PageProps) => {
     </div>
   }
 
-  const component = components_data[componentID];
+  const component = components_data[componentID as number];
 
   console.log(component);
 

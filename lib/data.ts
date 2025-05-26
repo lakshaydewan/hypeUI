@@ -2,7 +2,7 @@ import { ComponentType } from "react";
 import TextAnimate from "@/components/TextAnimate";
 import HackerEffect from "@/main/Hacker_Effect";
 import ActionSearchBar from "@/components/ActionSearch";
-import ThemeToggle from "@/components/ThemeToggle";
+import { ThemeToggle } from "@/main/ThemeToggleNew";
 import AnimatedNavbar from "@/components/AnimatedNavbar";
 import DragableItems from "@/components/Draggable";
 import ShimmerText from "@/main/ShimmerText";
@@ -58,8 +58,8 @@ interface ComponentData {
   }>;
 }
 
-export const components_data: Record<string, ComponentData> = {
-  "AnimateText" : {
+export const components_data: ComponentData[] = [
+  {
     name: "AnimateText",
     Component: TextAnimate,
     description: "Nothing special",
@@ -126,7 +126,7 @@ export default TextAnimate
       },
     ]
   },
-  "HackerEffect": {
+  {
     name: "HackerEffect",
     Component: HackerEffect,
     description: "Nothing special",
@@ -197,7 +197,7 @@ export default HackerEffect;`,
       }
     ]
   },
-  "SearchBar": {
+  {
     name: "SearchBar",
     Component: ActionSearchBar,
     description: "A modern search bar with a command palette style.",
@@ -468,43 +468,35 @@ export default ActionSearchBar
       }
     ]
   },
-"Theme Toggle": {
-  name: "Theme Toggle",
-  Component: ThemeToggle,
-  description: "A toggle for switching between light and dark themes.",
-  tags: ["Theme", "Dark Mode"],
-  code: escapedCode,
-  props: []
-},
-"Vercel tabs": {
-  name: "Vercel tabs",
-  Component: AnimatedNavbar,
-  description: "A simple animated navbar with vercel like tab animations.",
-  tags: ["Navbar", "Tabs"],
-  code: "\"use client\"\nimport React from \"react\"\nimport { motion } from \"framer-motion\"\n\nconst AnimatedNavbar = () => {\n  const links = [\n    { name: \"Home\", href: \"/\" },\n    { name: \"About\", href: \"/about\" },\n    { name: \"Contact\", href: \"/contact\" },\n    { name: \"Services\", href: \"/services\" },\n    { name: \"Blog\", href: \"/blog\" },\n  ]\n\n  const [activeLink, setActiveLink] = React.useState(0)\n  const [hoveredLink, setHoveredLink] = React.useState<number | null>(null)\n\n  const handleLinkClick = (index: number) => {\n    setActiveLink(index)\n  }\n\n  const highlightedLink = hoveredLink !== null ? hoveredLink : activeLink\n\n  return (\n      <div className=\"flex justify-center rounded-full items-center\">\n        {links.map((link, index) => (\n          <div\n            onClick={() => handleLinkClick(index)}\n            onMouseEnter={() => setHoveredLink(index)}\n            onMouseLeave={() => setHoveredLink(null)}\n            key={index}\n            className={`px-5 py-2 relative rounded-full  flex items-center justify-center cursor-pointer`}\n          >\n            <span className=\"mix-blend-exclusion text-white z-10\">{link.name}</span>\n            {index === highlightedLink && (\n              <motion.div\n                transition={{ duration: 0.7, type: \"spring\" }}\n                layoutId={\"const\"}\n                className=\"w-full inset-0 absolute h-full bg-gradient-to-r bg-neutral-950 dark:bg-white rounded-full\"\n              ></motion.div>\n            )}\n          </div>\n        ))}\n      </div>\n  )\n}\n\nexport default AnimatedNavbar;",
-  props: []
-},
-"Draggable Project Workflow": {
-  name: "Draggable Project Workflow",
-  Component: DragableItems,
-  description: "A drag and drop project workflow component.",
-  tags: ["Draggable", "Project Workflow"],
-  code: `"use client"\nimport * as React from \"react\";\nimport { useState } from \"react\";\nimport { Reorder } from \"framer-motion\";\n\n\nconst initialItems = [\"📱 Review App Design\", \"🔍 User Research\", \"💻 Code Implementation\", \"🧪 Testing & QA\"]\n\ninterface ItemProps {\n    items?: string[];\n}\n\nexport default function DragableItems({items = initialItems}: ItemProps) {\n    \n    const [itemsToMap, setItems] = useState(items || initialItems);\n\n    return (\n        <div className=\"w-screen h-screen bg-neutral-100 flex items-center justify-center\">\n            <div className=\"p-5 md:px-9 rounded-md bg-white shadow-xl w-fit h-fit\">\n            <h2 className=\"text-2xl font-semibold text-slate-800 mb-2\">Project Workflow</h2>\n            <p className=\"text-sm text-slate-500 mb-6\">Drag to reorder project phases</p>\n            <Reorder.Group axis=\"y\" onReorder={setItems} values={items}>\n                {itemsToMap.map((item) => (\n                    <Item key={item} item={item} />\n                ))}\n            </Reorder.Group>\n            </div>\n        </div>\n    );\n}\n\nfunction Item({ item }: { item: string }) {\n\n    const [isDragging, setIsDragging] = useState(false);\n\n    return (\n        <Reorder.Item\n            className={\`bg-white text-black border border-gray-300 \${isDragging ? \"shadow-xl\" : \"\"} px-6 rounded-lg shadow-md p-4 m-2 cursor-pointer\`}\n            id={item}\n            value={item}\n            onDrag={()=> {\n                setIsDragging(true);\n            }}\n            onDragEnd={() => {\n                setIsDragging(false);\n            }}\n        >\n            <div className=\"px-10\">{item}</div>\n        </Reorder.Item>\n    );\n}`,
-  props: [
-    {
-      propName: "items",
-      type: "string[]",
-      default: "-",
-      description: "The items to display in the draggable list.",
-    }
-  ]
-},
-"GPT Shimmer Text": {
-  name: "GPT Shimmer Text",
-  Component: ShimmerText,
-  description: "A shimmer text effect for OpenAI.",
-  tags: ["Shimmer", "OpenAI"],
-  code: `
+  {
+    name: "Theme Toggle",
+    Component: ThemeToggle,
+    description: "A toggle for switching between light and dark themes.",
+    tags: ["Theme", "Dark Mode"],
+    code: escapedCode,
+    props: []
+  },
+  {
+    name: "Draggable Project Workflow",
+    Component: DragableItems,
+    description: "A drag and drop project workflow component.",
+    tags: ["Draggable", "Project Workflow"],
+    code: `"use client"\nimport * as React from \"react\";\nimport { useState } from \"react\";\nimport { Reorder } from \"framer-motion\";\n\n\nconst initialItems = [\"📱 Review App Design\", \"🔍 User Research\", \"💻 Code Implementation\", \"🧪 Testing & QA\"]\n\ninterface ItemProps {\n    items?: string[];\n}\n\nexport default function DragableItems({items = initialItems}: ItemProps) {\n    \n    const [itemsToMap, setItems] = useState(items || initialItems);\n\n    return (\n        <div className=\"w-screen h-screen bg-neutral-100 flex items-center justify-center\">\n            <div className=\"p-5 md:px-9 rounded-md bg-white shadow-xl w-fit h-fit\">\n            <h2 className=\"text-2xl font-semibold text-slate-800 mb-2\">Project Workflow</h2>\n            <p className=\"text-sm text-slate-500 mb-6\">Drag to reorder project phases</p>\n            <Reorder.Group axis=\"y\" onReorder={setItems} values={items}>\n                {itemsToMap.map((item) => (\n                    <Item key={item} item={item} />\n                ))}\n            </Reorder.Group>\n            </div>\n        </div>\n    );\n}\n\nfunction Item({ item }: { item: string }) {\n\n    const [isDragging, setIsDragging] = useState(false);\n\n    return (\n        <Reorder.Item\n            className={\`bg-white text-black border border-gray-300 \${isDragging ? \"shadow-xl\" : \"\"} px-6 rounded-lg shadow-md p-4 m-2 cursor-pointer\`}\n            id={item}\n            value={item}\n            onDrag={()=> {\n                setIsDragging(true);\n            }}\n            onDragEnd={() => {\n                setIsDragging(false);\n            }}\n        >\n            <div className=\"px-10\">{item}</div>\n        </Reorder.Item>\n    );\n}`,
+    props: [
+      {
+        propName: "items",
+        type: "string[]",
+        default: "-",
+        description: "The items to display in the draggable list.",
+      }
+    ]
+  },
+  {
+    name: "GPT Shimmer Text",
+    Component: ShimmerText,
+    description: "A shimmer text effect for OpenAI.",
+    tags: ["Shimmer", "OpenAI"],
+    code: `
 'use client'
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -530,27 +522,27 @@ export default function ShimmerText({ text, className }: { text: string, classNa
     );
 }
   `,
-  props: [
-    {
-      propName: "text",
-      type: "string",
-      default: "-",
-      description: "The text to animate.",
-    },
-    {
-      propName: "className",
-      type: "string",
-      default: "-",
-      description: "Additional class names for styling.",
-    }
-  ]
-},
-"vercel Tabs": {
-  name: "Vercel Tabs",
-  Component: AnimatedNavbar,
-  description: "A simple animated navbar with vercel like tab animations.",
-  tags: ["Navbar", "Tabs", "Vercel"],
-  code: `
+    props: [
+      {
+        propName: "text",
+        type: "string",
+        default: "-",
+        description: "The text to animate.",
+      },
+      {
+        propName: "className",
+        type: "string",
+        default: "-",
+        description: "Additional class names for styling.",
+      }
+    ]
+  },
+  {
+    name: "Vercel Tabs",
+    Component: AnimatedNavbar,
+    description: "A simple animated navbar with vercel like tab animations.",
+    tags: ["Navbar", "Tabs", "Vercel"],
+    code: `
 "use client"
 import React from "react"
 import { motion } from "framer-motion"
@@ -599,14 +591,14 @@ const AnimatedNavbar = () => {
 
 export default AnimatedNavbar;
 `,
-  props: []
-},
-"Flip Text": {
-  name: "Flip Text",
-  Component: FlipFade,
-  description: "A flip text animation.",
-  tags: ["Animation", "Text", "Flip"],
-  code: `
+    props: []
+  },
+  {
+    name: "Flip Text",
+    Component: FlipFade,
+    description: "A flip text animation.",
+    tags: ["Animation", "Text", "Flip"],
+    code: `
 'use client'
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
@@ -657,19 +649,19 @@ export default function FlipFade({textArray = ["better", "cleaner", "cooler", "l
     );
 }
 `,
-props: [
-    {
-      propName: "textArray",
-      type: "string[]", 
-      default: "['better', 'cleaner', 'cooler', 'louder']",
-      description: "The array of text to animate.",
-    },
-    {
-      propName: "className",
-      type: "string",
-      default: "-",
-      description: "Additional class names for styling.",
-    }
-  ]
-},
-};
+    props: [
+      {
+        propName: "textArray",
+        type: "string[]",
+        default: "['better', 'cleaner', 'cooler', 'louder']",
+        description: "The array of text to animate.",
+      },
+      {
+        propName: "className",
+        type: "string",
+        default: "-",
+        description: "Additional class names for styling.",
+      }
+    ]
+  }
+];

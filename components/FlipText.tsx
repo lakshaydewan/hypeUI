@@ -26,7 +26,7 @@ export default function FlipFade({textArray = ["better", "cleaner", "cooler", "l
     })
 
     return (
-        <AnimatePresence mode="popLayout">
+        <AnimatePresence mode="popLayout" initial={false}>
             <motion.div
                 key={arr[active]}
                 initial={{ rotateX: 0, opacity: 0, filter: 'blur(10px)', y: 50 }}
